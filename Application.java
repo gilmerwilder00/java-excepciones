@@ -18,14 +18,14 @@ public class Application {
             System.out.println();
             System.out.print("Ingrese un número:");
             numero1 = scanner.nextDouble();
-            numero2 = obtenerNumerador(scanner);
+            numero2 = obtenerNumerador(scanner); // puede lanzar excepcion
             double division = numero1/numero2;
             System.out.println("La división es: " +  division);
             System.out.println();
 
         } catch (Exception e) {
             System.out.println();
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage()); // se imprime un mensaje
             System.out.println();
         }
 
@@ -37,6 +37,7 @@ public class Application {
         numero = scanner.nextDouble();
 
         if(numero == 0){
+            // se lanza una excepción para evitar uns división por 0 
             throw new Exception("Se ingresó el número 0.");
         }
 
