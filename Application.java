@@ -4,7 +4,11 @@ public class Application {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        divisionSegura(scanner);
+        // divisionSegura(scanner);
+        saludoAlUsuario();
+
+        // ...
+        
         
         scanner.close();
     }
@@ -42,6 +46,38 @@ public class Application {
         }
 
         return numero;
+    }
+
+
+    public static void saludoAlUsuario(){
+        Scanner scanner = new Scanner(System.in);
+        try {
+            String nombre = solicitarNombre(scanner); // puede lanzar exception
+            System.out.println("Hola! " + nombre);
+        } catch (Exception e) {
+            System.out.println();
+            System.out.println("Error: " + e.getMessage());
+            System.out.println();
+        }finally{
+            scanner.close();
+            System.out.println("Se cerro el scanner.");
+            System.out.println();
+        }
+    }
+
+
+    public static String solicitarNombre(Scanner scanner) throws Exception{
+        String nombre = null;
+
+        System.out.println();
+        System.out.print("Ingresa tu nombre:");
+        nombre = scanner.nextLine();
+
+        if(nombre.length() < 2){
+            throw new Exception(" El nombre debe tener como mínimo 2 caracteres.");
+        }
+
+        return nombre;
     }
 
 
